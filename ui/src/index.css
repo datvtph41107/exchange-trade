@@ -1,0 +1,41 @@
+a {
+    text-decoration: none;
+}
+
+:root {
+    --primary: #e22a19;
+    --black: black;
+    --white: white;
+    --text-color: #161823;
+    --gray: #ccc;
+    --hue: 223;
+    --bg: hsl(var(--hue), 10%, 90%);
+    --fg: hsl(var(--hue), 10%, 10%);
+    --trans-dur: 0.3s;
+    --bs-gutter-x: 1.5rem;
+
+    --front-family: 'Nunito', sans-serif;
+
+    --default-layout-header-height: 80px;
+    --default-layout-header-width: 1488px;
+    --default-layout-header-hoizontal: 32px;
+    --defauly-layout-space: 56.4px;
+    --defauly-layout-space-xtra: 32px;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--front-family);
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
+    color: var(--text-color);
+}
