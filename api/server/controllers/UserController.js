@@ -1,3 +1,4 @@
+import LOGGER from "../utils/logger";
 const UserServices = require("../services/UserServices");
 
 // import express from "express";
@@ -10,6 +11,7 @@ const UserServices = require("../services/UserServices");
 // export default router;
 exports.login = async (req, res) => {
     const data = req.body;
+    LOGGER.APP.info("register -> data: " + JSON.stringify(data));
     const response = await UserServices.login(data);
     return res.status(200).send(response);
 };
