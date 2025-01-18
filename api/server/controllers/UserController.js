@@ -9,9 +9,10 @@ const UserServices = require("../services/UserServices");
 // router.get("/login", login);
 
 // export default router;
-exports.login = async (req, res) => {
-    const data = req.body;
-    LOGGER.APP.info("register -> data: " + JSON.stringify(data));
-    const response = await UserServices.login(data);
-    return res.status(200).send(response);
+exports.getUser = async (req, res) => {
+    LOGGER.APP.info("USER data: " + JSON.stringify(req.user));
+    const response = await UserServices.getUser(req);
+    console.log(response);
+
+    return res.status(response.code).send(response);
 };
