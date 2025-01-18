@@ -1,6 +1,5 @@
 import LOGGER from "../utils/logger";
 
-require("dotenv").config();
 const DB_CONFIG = require("./config").dbConfig;
 const knex = require("knex")(DB_CONFIG);
 

@@ -1,9 +1,9 @@
 const express = require("express");
-const UserController = require("../controllers/UserController");
+const TransactionController = require("../controllers/TransactionController");
 const { validator } = require("../middlewares");
 const { AuthMiddleware } = require("../middlewares");
 const router = express.Router();
 
-router.get("/info", AuthMiddleware.authenticate, validator, UserController.getUser);
+router.get("/deposit/fiat", AuthMiddleware.authenticate, validator, TransactionController.deposit);
 
 module.exports = router;

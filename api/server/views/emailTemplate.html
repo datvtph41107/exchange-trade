@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .email-container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .email-header {
+            background-color: #007BFF;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .email-body {
+            padding: 20px;
+            color: #333333;
+        }
+
+        .email-footer {
+            text-align: center;
+            font-size: 12px;
+            color: #666666;
+            padding: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            color: #ffffff;
+            background-color: #007BFF;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="email-container">
+        <div class="email-header">
+            <h1>Chào mừng đến với Hệ Thống Của Chúng Tôi!</h1>
+        </div>
+        <div class="email-body">
+            <p>Xin chào <strong>{{username}}</strong>,</p>
+            <p>Cảm ơn bạn đã đăng ký tài khoản tại hệ thống của chúng tôi. Chúng tôi rất vui được chào đón bạn!</p>
+            <p>Hãy nhấn vào nút bên dưới để bắt đầu trải nghiệm dịch vụ:</p>
+            <a href="{{actionUrl}}" class="btn">Bắt đầu ngay</a>
+        </div>
+        <div class="email-footer">
+            <p>© 2025 Công ty XYZ. Mọi quyền được bảo lưu.</p>
+            <p>Vui lòng không trả lời email này. Nếu bạn cần hỗ trợ, liên hệ <a
+                    href="mailto:support@example.com">support@example.com</a>.</p>
+        </div>
+    </div>
+</body>
+
+</html>

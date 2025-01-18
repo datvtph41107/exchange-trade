@@ -6,6 +6,9 @@ import helmet from "helmet";
 import LOGGER from "./server/utils/logger";
 
 import userRouter from "./server/routes/user";
+import orderRouter from "./server/routes/order";
+import authenticateRouter from "./server/routes/authenticate";
+import transactionRouter from "./server/routes/transaction";
 
 const app = express();
 require("dotenv").config();
@@ -24,7 +27,10 @@ app.use((req, res, next) => {
 
 // Route
 const { PREFIX } = process.env;
+app.use(`${PREFIX}/`, authenticateRouter);
 app.use(`${PREFIX}/user`, userRouter);
+app.use(`${PREFIX}/orders`, orderRouter);
+app.use(`${PREFIX}/transaction`, transactionRouter);
 
 app.use((req, res) => {
     res.status(404).send({

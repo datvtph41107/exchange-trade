@@ -1,14 +1,15 @@
+import LOGGER from "../utils/logger";
 import connection from "../config/connectDB";
 import response from "../utils/response";
 
 class UserServices {
-    static async login(data) {
-        const email = "tiendat@gmail.com";
-        const user = await connection.select().from("users").where({ email: email }).first();
-        if (!user) {
-            return response.WARN(404, "", "User not found!");
+    static async getUser(request) {
+        try {
+            return response.SUCCESS(200, "successfully", request.user);
+        } catch (error) {
+            LOGGER.APP.error(JSON.stringify(error));
+            return response.ERROR(500, "", error.message);
         }
-        return response.SUCCESS(200, "Login success", 1);
     }
 }
 

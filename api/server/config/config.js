@@ -1,5 +1,6 @@
 const LOGGER = require("../utils/logger");
 const path = require("path");
+const nodemailer = require("nodemailer");
 require("dotenv").config();
 
 const dbConfig = {
@@ -34,6 +35,17 @@ const dbConfig = {
     },
 };
 
+const mailTransportConfig = nodemailer.createTransport({
+    host: process.env.MAIL_HOST,
+    port: process.env.MAIL_PORT,
+    secure: false, // true for port 465, false for other ports
+    auth: {
+        user: process.env.MAIL_USERNAME,
+        pass: process.env.MAIL_PASSWORD,
+    },
+});
+
 module.exports = {
     dbConfig,
+    mailTransportConfig,
 };

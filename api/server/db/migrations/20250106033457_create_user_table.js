@@ -8,7 +8,16 @@ exports.up = function (knex) {
         table.increments("id").primary();
         table.string("username").notNullable();
         table.string("email").notNullable().unique();
-        table.timestamp("created_at").defaultTo(knex.fn.now());
+        table.string("password", 255).notNullable();
+        table.string("google_authentication", 255).nullable();
+        table.string("remember_token", 255).nullable();
+        table.bigInteger("referrer_id").unsigned().nullable().index();
+        table.bigInteger("referrer_code").unsigned().nullable();
+        table.enum("status", ["active", "inactive"]).defaultTo("inactive");
+        table.integer("security_level").defaultTo(1);
+        table.string("phone_no", 50).nullable();
+
+        table.timestamps();
     });
 };
 

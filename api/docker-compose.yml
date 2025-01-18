@@ -1,0 +1,44 @@
+version: "3.8"
+services:
+    backend:
+        build: .
+        container_name: blockchain-backend
+        ports:
+            - "3000:3000"
+        volumes:
+            - .:/app
+        command: npm run dev
+        depends_on:
+            - redis
+            - rabbitmq
+            - kafka
+
+    redis:
+        image: redis:latest
+        container_name: redis
+        ports:
+            - "6379:6379"
+
+    rabbitmq:
+        image: rabbitmq:management
+        container_name: rabbitmq
+        ports:
+            - "5672:5672"
+            - "15672:15672"
+
+    kafka:
+        image: bitnami/kafka:latest
+        container_name: kafka
+        environment:
+            - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+            - ALLOW_PLAINTEXT_LISTENER=yes
+        ports:
+            - "9092:9092"
+        depends_on:
+            - zookeeper
+
+    zookeeper:
+        image: bitnami/zookeeper:latest
+        container_name: zookeeper
+        ports:
+            - "2181:2181"
